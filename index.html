@@ -549,12 +549,13 @@ footer { padding-block: 36px 100px; color: var(--foam-dim); font: 400 0.82rem/1.
   const BASS = [48,43,48,43, 48,43,48,48, 43,48,43,43, 48,43,48,48]; // one root per bar
   const BEAT = 0.42;
 
-  let tuneOut = null, tuneTimer = null;
+  let tuneOut = null, tuneTimer = null, fadeWithScroll = false;
   const tuneBtn = $('tune-btn');
-  function playTune() {
+  function playTune(fade) {
     const ctx = audio(); if (!ctx) return;
     stopTune();
     pauseSong();
+    fadeWithScroll = !!fade;
     tuneOut = ctx.createGain(); tuneOut.gain.value = 0.2; tuneOut.connect(ctx.destination);
     const t0 = ctx.currentTime + 0.12;
     let t = t0;
@@ -581,6 +582,15 @@ footer { padding-block: 36px 100px; color: var(--foam-dim); font: 400 0.82rem/1.
     tuneBtn.textContent = '♪ Play tune';
   }
   tuneBtn.addEventListener('click', () => (tuneOut ? stopTune() : playTune()));
+
+  // The opening tune fades as Sir scrolls and is gone by the middle of the page.
+  addEventListener('scroll', () => {
+    if (!tuneOut || !fadeWithScroll || !actx) return;
+    const mid = (document.documentElement.scrollHeight - innerHeight) / 2;
+    const p = Math.min(1, Math.max(0, scrollY / mid));
+    if (p >= 1) { stopTune(); return; }
+    tuneOut.gain.setTargetAtTime(0.2 * (1 - p), actx.currentTime, 0.08);
+  }, { passive: true });
 
   let noiseBuf = null;
   function pop(big) {
@@ -903,7 +913,7 @@ footer { padding-block: 36px 100px; color: var(--foam-dim); font: 400 0.82rem/1.
   }
   $('open-btn').addEventListener('click', () => {
     audio();
-    playTune();
+    playTune(true);
     loadYT();
     $('stage1').hidden = true;
     $('stage2').hidden = false;
