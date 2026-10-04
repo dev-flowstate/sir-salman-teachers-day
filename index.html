@@ -4,254 +4,354 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="A Teachers' Day thank-you to Sir Salman from Class 26B4.">
+<meta name="theme-color" content="#03182f">
 <title>Thank You, Sir Salman</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
 <style>
-/* Layout: one long drafting sheet on blueprint graph paper. Desmos-style plot in the hero,
-   a two-column proof, the ship sailing to Germany, a final problem, then the certificate. */
+/* Layout: a voyage down the page, taken from the ship blueprint.
+   Pale drafting paper with construction lines (hero, proof) -> the ship on the horizon (full bleed)
+   -> down into the sea, darker with every section (Germany, question, certificate, goodbye). */
 :root {
-  --blue: #0e3360;
-  --blue-deep: #0a2547;
-  --ink: #eaf3ff;
-  --ink-dim: #a9c1de;
-  --line: rgba(200, 225, 255, 0.22);
-  --grid-minor: rgba(190, 220, 255, 0.07);
-  --grid-major: rgba(190, 220, 255, 0.13);
-  --paper: #e6f0f6;
-  --paper-ink: #0e3360;
-  --amber: #f4b942;
-  --amber-ink: #2a1c00;
-  --good: #8fe3a8;
-  --bad: #ffb0a0;
+  --paper: #d6eaf0;
+  --paper-hi: #e8f3f7;
+  --paper-deep: #c4e1e9;
+  --ink: #0d1b2e;
+  --ink-soft: #3b5873;
+  --rule: rgba(13, 27, 46, 0.24);
+  --sea: #01518a;
+  --sea-mid: #063a6c;
+  --abyss: #03182f;
+  --foam: #e8f3f7;
+  --foam-dim: #a9cadb;
+  --ice: #8fd3ff;
+  --sea-rule: rgba(196, 225, 233, 0.24);
 
   --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
 img { max-width: 100%; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
   margin: 0;
-  background-color: var(--blue);
-  background-image:
-    linear-gradient(var(--grid-major) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
-    linear-gradient(var(--grid-minor) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
-  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  background: var(--abyss);
   color: var(--ink);
   font: 400 1.0625rem/1.65 var(--body);
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
-.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; }
-h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.05; }
-h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; position: relative; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1; letter-spacing: -0.01em; }
+h2 { font-size: clamp(2.5rem, 7vw, 4.4rem); }
 p { margin: 0; }
-em { font-style: italic; }
-.eyebrow {
-  font: 500 0.75rem/1.4 var(--mono);
-  letter-spacing: 0.14em;
+.tag {
+  font: 500 0.72rem/1.4 var(--mono);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--amber);
-}
-.mono { font-family: var(--mono); }
-section { padding-block: 72px; border-top: 1px dashed var(--line); }
-.section-head { display: grid; gap: 14px; margin-bottom: 36px; max-width: 46rem; }
-.section-head p { color: var(--ink-dim); }
-
-button { font: inherit; cursor: pointer; }
-.btn {
   display: inline-flex; align-items: center; gap: 10px;
-  border: 1.5px solid var(--amber);
-  background: var(--amber); color: var(--amber-ink);
-  font: 600 1rem/1 var(--body);
-  padding: 14px 22px; border-radius: 4px;
-  transition: transform .15s ease, background-color .15s ease;
 }
-.btn:hover { transform: translateY(-1px); }
-.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-.btn.ghost:hover { border-color: var(--ink-dim); }
-:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+.tag::before { content: ""; width: 26px; height: 1px; background: currentColor; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; }
 
-/* ---------- Opening gate ---------- */
-#gate {
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper-hi);
+  font: 600 1rem/1 var(--body); letter-spacing: .01em;
+  padding: 15px 24px; border-radius: 2px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--sea); }
+.sea .btn, .gate .btn { background: var(--foam); color: var(--ink); border-color: var(--foam); }
+.sea .btn:hover, .gate .btn:hover { box-shadow: 4px 4px 0 var(--ice); }
+.btn.ghost { background: transparent; color: var(--foam); border-color: var(--sea-rule); }
+
+/* ---------- Opening gate: night sea, the ship in the dark ---------- */
+.gate {
   position: fixed; inset: 0; z-index: 30;
   display: grid; place-items: center;
-  padding: 24px;
-  background: radial-gradient(ellipse at 50% 120%, #163f74 0%, var(--blue-deep) 55%, #061a33 100%);
+  padding: 24px 20px;
+  color: var(--foam);
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 50%, rgba(3, 24, 47, 0.6) 0%, transparent 100%),
+    linear-gradient(180deg, rgba(3, 24, 47, 0.8) 0%, rgba(3, 24, 47, 0.68) 45%, rgba(3, 24, 47, 0.95) 100%),
+    url("ship.jpg") center 70% / cover no-repeat,
+    var(--abyss);
   transition: opacity .9s ease, visibility .9s;
 }
-#gate.open { opacity: 0; visibility: hidden; }
-.gate-card { display: grid; gap: 22px; justify-items: center; text-align: center; max-width: 34rem; }
-.gate-card h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); }
-.gate-card h1 em { color: var(--amber); }
-.gate-card p { color: var(--ink-dim); }
-.gate-eq { font: 400 0.9rem/1.5 var(--mono); color: var(--ink-dim); }
+.gate::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(232, 243, 247, 0.05) 0 1px, transparent 1px 4px);
+}
+.gate.open { opacity: 0; visibility: hidden; }
+.stage { position: relative; z-index: 1; display: grid; gap: 22px; justify-items: center; text-align: center; max-width: 36rem; }
+.stage h1 { font-size: clamp(2.6rem, 9vw, 4.8rem); }
+.stage h1 em { color: var(--ice); }
+.stage p { color: var(--foam); text-shadow: 0 1px 12px rgba(3, 24, 47, .9); }
+.stage h1 { text-shadow: 0 2px 24px rgba(3, 24, 47, .8); }
+.stage .tag { color: var(--ice); }
+.stage .eq { font: 400 0.85rem/1.5 var(--mono); color: var(--foam-dim); }
+.stage-2 h1 { font-size: clamp(3rem, 11vw, 6.4rem); }
 
-/* ---------- Fireworks layer ---------- */
+/* ---------- Fireworks layer + dock ---------- */
 #fw { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 40; }
-
-/* ---------- Floating controls ---------- */
 .dock {
   position: fixed; z-index: 20;
-  right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  right: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px));
   display: flex; gap: 8px;
 }
 .dock button {
-  font: 500 0.8rem/1 var(--mono); letter-spacing: .04em;
-  color: var(--ink); background: rgba(10, 37, 71, 0.88);
-  border: 1px solid var(--line); border-radius: 999px;
-  padding: 10px 14px;
-  backdrop-filter: blur(6px);
+  font: 500 0.78rem/1 var(--mono); letter-spacing: .04em;
+  color: var(--foam); background: rgba(3, 24, 47, 0.86);
+  border: 1px solid var(--sea-rule); border-radius: 999px;
+  padding: 11px 14px;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
 }
-.dock button:hover { border-color: var(--amber); }
+.dock button:hover { border-color: var(--ice); }
 
-/* ---------- Hero ---------- */
-.hero { padding-block: 64px 80px; border-top: 0; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center; }
-.hero-copy { display: grid; gap: 22px; min-width: 0; }
-.hero h1 { font-size: clamp(3rem, 8vw, 5.6rem); }
-.hero h1 em { color: var(--amber); display: block; }
-.hero-copy p { color: var(--ink-dim); max-width: 32rem; font-size: 1.15rem; }
+/* ---------- Paper zone: drafting sheet with construction lines ---------- */
+.paper-zone {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 80% 0%, var(--paper-hi) 0%, transparent 60%),
+    linear-gradient(180deg, var(--paper-hi) 0%, var(--paper) 40%, var(--paper-deep) 100%);
+  overflow: hidden;
+}
+#draft { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.paper-zone > * { position: relative; }
+
+.hero { padding-block: 72px 88px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: center; }
+.hero-copy { display: grid; gap: 26px; min-width: 0; }
+.hero .tag { color: var(--sea); }
+.hero h1 { font-size: clamp(3.4rem, 9.5vw, 7rem); line-height: 0.92; color: var(--ink); }
+.hero h1 .name { display: block; font-style: italic; color: var(--sea); margin-top: 6px; }
+.dim {
+  position: relative; height: 22px; max-width: 26rem;
+  border-bottom: 1px solid var(--ink);
+  font: 500 0.7rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft);
+  display: flex; justify-content: center; align-items: flex-start;
+}
+.dim::before, .dim::after { content: ""; position: absolute; bottom: -7px; width: 1px; height: 14px; background: var(--ink); }
+.dim::before { left: 0; } .dim::after { right: 0; }
+.dim span { background: var(--paper); padding-inline: 8px; transform: translateY(15px); }
+.hero-copy p { color: var(--ink-soft); max-width: 31rem; font-size: 1.15rem; }
 .hero-copy p strong { color: var(--ink); font-weight: 600; }
 
-.desmos {
-  min-width: 0;
-  background: #fbfdff; color: #1b2a3a;
-  border-radius: 8px; overflow: hidden;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .55);
-  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-}
-.expr-list { border-right: 1px solid #dfe5ec; font: 400 0.82rem/1.4 var(--mono); }
+.desmos-sheet { min-width: 0; border: 1.5px solid var(--ink); background: #fff; box-shadow: 10px 10px 0 rgba(1, 81, 138, 0.9); }
+.desmos { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); color: #1b2a3a; }
+.expr-list { border-right: 1px solid #dfe5ec; font: 400 0.8rem/1.4 var(--mono); }
 .expr { display: grid; grid-template-columns: 26px minmax(0, 1fr); border-bottom: 1px solid #e6ebf0; }
 .expr .n { background: #f1f4f7; color: #7a8796; font-size: 0.7rem; text-align: center; padding-top: 12px; }
-.expr .f { padding: 10px 10px 10px 8px; overflow-wrap: anywhere; display: flex; gap: 8px; align-items: flex-start; }
+.expr .f { padding: 10px 10px 10px 8px; overflow-wrap: anywhere; display: flex; gap: 8px; align-items: flex-start; min-width: 0; }
+.expr .f > span:last-child { min-width: 0; }
 .expr .dot { flex: none; width: 12px; height: 12px; border-radius: 50%; margin-top: 3px; }
 .expr i { font-family: var(--display); font-size: 1.05rem; }
 .plot { position: relative; min-width: 0; }
-#plot { display: block; width: 100%; height: 100%; min-height: 240px; }
+#plot { display: block; width: 100%; height: 100%; min-height: 250px; }
+.sheet-block { display: grid; grid-template-columns: minmax(0, 1fr) auto; border-top: 1.5px solid var(--ink); font: 500 0.68rem/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+.sheet-block div { padding: 9px 12px; min-width: 0; }
+.sheet-block div + div { border-left: 1px solid var(--ink); }
 
-/* ---------- Proof ---------- */
-.proof { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: rgba(10, 37, 71, 0.55); }
-.proof-row { display: grid; grid-template-columns: 56px minmax(0, 1.25fr) minmax(0, 1fr); border-top: 1px solid var(--line); }
+.proof-sec { padding-block: 24px 96px; }
+.section-head { display: grid; gap: 16px; margin-bottom: 36px; max-width: 46rem; }
+.paper-zone .section-head .tag { color: var(--sea); }
+.section-head p { font-size: 1.1rem; }
+.paper-zone .section-head p { color: var(--ink-soft); }
+.proof { border: 1.5px solid var(--ink); background: rgba(232, 243, 247, 0.82); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
+.proof-row { display: grid; grid-template-columns: 60px minmax(0, 1.2fr) minmax(0, 1fr); border-top: 1px solid var(--rule); }
 .proof-row > * { padding: 18px 20px; min-width: 0; }
 .proof-row:first-child { border-top: 0; }
-.proof-head { background: rgba(6, 26, 51, 0.6); }
-.proof-row.proof-head > * { font: 500 0.72rem/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
-.proof-row .k { font: 500 0.85rem/1.65 var(--mono); color: var(--amber); border-right: 1px solid var(--line); text-align: center; }
-.proof-row .s { font-size: 1.08rem; color: var(--ink); }
-.proof-row .r { color: var(--ink-dim); border-left: 1px dashed var(--line); }
-.proof-row.conclude .s { font-family: var(--display); font-size: 1.7rem; line-height: 1.2; }
-.proof-row.conclude .r { font: 500 0.95rem/1.65 var(--mono); color: var(--amber); }
+.proof-row.head { background: var(--ink); color: var(--paper-hi); }
+.proof-row.head > * { font: 500 0.7rem/1.4 var(--mono); letter-spacing: .16em; text-transform: uppercase; padding-block: 12px; }
+.proof-row .k { font: 500 0.85rem/1.9 var(--mono); color: var(--sea); border-right: 1px solid var(--rule); text-align: center; }
+.proof-row.head .k { color: var(--paper-hi); border-right-color: rgba(232, 243, 247, .25); }
+.proof-row .s { font-family: var(--display); font-size: 1.45rem; line-height: 1.25; color: var(--ink); }
+.proof-row .r { color: var(--ink-soft); border-left: 1px dashed var(--rule); align-self: stretch; }
+.proof-row.head .r { color: var(--paper-hi); border-left-color: rgba(232, 243, 247, .25); }
+.proof-row.head .s { font: 500 0.7rem/1.4 var(--mono); color: var(--paper-hi); }
+.proof-row.conclude { background: var(--sea); color: var(--foam); }
+.proof-row.conclude .k, .proof-row.conclude .s { color: var(--foam); border-color: rgba(232, 243, 247, .3); }
+.proof-row.conclude .s { font-style: italic; font-size: 1.9rem; }
+.proof-row.conclude .r { font: 500 0.95rem/2.2 var(--mono); color: var(--ice); border-color: rgba(232, 243, 247, .3); }
 
-/* ---------- Voyage ---------- */
-.voyage-figure { margin: 0; position: relative; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--paper); }
-.voyage-figure img { display: block; width: 100%; height: auto; aspect-ratio: 1308 / 736; object-fit: cover; }
+/* ---------- The horizon: the ship, full bleed ---------- */
+.horizon { position: relative; background: var(--sea); }
+.horizon img { display: block; width: 100%; height: clamp(300px, 58vw, 780px); object-fit: cover; object-position: center bottom; }
 .title-block {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-  background: var(--paper); color: var(--paper-ink);
-  border-top: 2px solid var(--paper-ink);
-  font: 500 0.78rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+  position: absolute; right: 20px; bottom: 28px;
+  display: grid; grid-template-columns: repeat(2, minmax(0, auto));
+  background: var(--paper-hi); color: var(--ink); border: 1.5px solid var(--ink);
+  font: 500 0.74rem/1.35 var(--mono); letter-spacing: .08em; text-transform: uppercase;
 }
-.title-block div { padding: 12px 16px; border-left: 1px solid rgba(14, 51, 96, .35); min-width: 0; }
-.title-block div:first-child { border-left: 0; }
-.title-block span { display: block; font-size: 0.66rem; letter-spacing: .14em; opacity: .65; margin-bottom: 2px; }
-.voyage-text { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; margin-top: 40px; align-items: start; }
-.voyage-text h2 em { color: var(--amber); }
-.voyage-text .gloss { font: 400 0.85rem/1.5 var(--mono); color: var(--ink-dim); margin-top: 12px; }
-.voyage-text .body { display: grid; gap: 16px; color: var(--ink); font-size: 1.12rem; max-width: 34rem; }
-.voyage-text .body strong { color: var(--amber); font-weight: 600; }
+.title-block div { padding: 10px 14px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); min-width: 0; }
+.title-block div:nth-child(-n+2) { border-top: 0; }
+.title-block div:nth-child(odd) { border-left: 0; }
+.title-block span { display: block; font-size: 0.6rem; letter-spacing: .16em; color: var(--ink-soft); margin-bottom: 2px; }
 
-/* ---------- Final question ---------- */
-.problem { display: grid; gap: 22px; max-width: 46rem; }
-.problem-card { border: 1px solid var(--line); border-left: 3px solid var(--amber); border-radius: 4px; padding: 24px 26px; background: rgba(10, 37, 71, 0.55); display: grid; gap: 14px; }
+/* ---------- The sea: deeper with every section ---------- */
+.sea {
+  position: relative; color: var(--foam);
+  background: linear-gradient(180deg, var(--sea) 0%, var(--sea-mid) 26%, #052b52 55%, var(--abyss) 82%);
+}
+.sea::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(232, 243, 247, 0.035) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg,
+      transparent 0 3%, rgba(143, 211, 255, .16) 3% 3.08%, transparent 3.08% 7%,
+      rgba(143, 211, 255, .1) 7% 7.3%, transparent 7.3% 18%, rgba(143, 211, 255, .08) 18% 18.06%,
+      transparent 18.06% 41%, rgba(143, 211, 255, .07) 41% 41.2%, transparent 41.2% 66%,
+      rgba(143, 211, 255, .06) 66% 66.05%, transparent 66.05%);
+}
+.sea > * { position: relative; }
+.sea section { padding-block: 88px; }
+.sea section + section { border-top: 1px solid var(--sea-rule); }
+.sea .section-head .tag { color: var(--ice); }
+.sea .section-head p { color: var(--foam-dim); }
+
+.voyage-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: end; }
+.voyage-grid h2 { font-size: clamp(3rem, 9vw, 6rem); }
+.voyage-grid h2 em { color: var(--ice); display: block; }
+.gloss { font: 400 0.85rem/1.5 var(--mono); color: var(--foam-dim); margin-top: 16px; }
+.voyage-body { display: grid; gap: 16px; font-size: 1.15rem; max-width: 34rem; }
+.voyage-body strong { color: var(--ice); font-weight: 600; }
+
+.problem { display: grid; gap: 24px; max-width: 48rem; }
+.problem-card {
+  border: 1px solid var(--sea-rule); border-left: 3px solid var(--ice);
+  padding: 26px 26px; background: rgba(3, 24, 47, 0.45);
+  display: grid; gap: 16px;
+}
 .problem-card .q { font-size: 1.15rem; }
 .math { font-family: var(--display); font-size: 1.35em; white-space: nowrap; }
+.center { text-align: center; }
 .answer-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; }
-.answer-row label { flex-basis: 100%; font: 500 0.75rem/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); }
+.answer-row label { flex-basis: 100%; font: 500 0.72rem/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--foam-dim); }
 #answer {
-  flex: 1 1 200px; min-width: 0;
-  font: 400 1.1rem/1 var(--mono); color: var(--ink);
-  background: rgba(6, 26, 51, 0.7); border: 1px solid var(--line); border-radius: 4px;
-  padding: 14px 14px;
+  flex: 1 1 180px; min-width: 0;
+  font: 400 1.1rem/1 var(--mono); color: var(--foam);
+  background: rgba(3, 24, 47, 0.75); border: 1px solid var(--sea-rule); border-radius: 2px;
+  padding: 15px 14px;
 }
-#answer::placeholder { color: rgba(169, 193, 222, .55); }
-.symbol-btn { font: 500 1.1rem/1 var(--mono); padding-inline: 16px; }
+#answer::placeholder { color: rgba(169, 202, 219, .6); }
+.symbol-btn { font: 500 1.15rem/1 var(--mono); padding-inline: 18px; }
 #feedback { min-height: 1.6em; font-size: 1.02rem; }
-#feedback.good { color: var(--good); }
-#feedback.bad { color: var(--bad); }
-.solution { border-top: 1px dashed var(--line); padding-top: 14px; color: var(--ink-dim); display: grid; gap: 6px; font-family: var(--mono); font-size: 0.92rem; }
-.solution b { color: var(--ink); font-weight: 500; }
-.text-btn { background: none; border: 0; padding: 0; color: var(--ink-dim); font: 500 0.85rem/1.4 var(--mono); text-decoration: underline; text-underline-offset: 3px; justify-self: start; }
-.text-btn:hover { color: var(--amber); }
+#feedback.good { color: #9af0b8; }
+#feedback.bad { color: #ffc0b0; }
+.solution { border-top: 1px dashed var(--sea-rule); padding-top: 14px; color: var(--foam-dim); display: grid; gap: 6px; font-family: var(--mono); font-size: 0.92rem; }
+.solution b { color: var(--foam); font-weight: 500; }
+.text-btn { background: none; border: 0; padding: 0; color: var(--foam-dim); font: 500 0.85rem/1.4 var(--mono); text-decoration: underline; text-underline-offset: 3px; justify-self: start; }
+.text-btn:hover { color: var(--ice); }
 
-/* ---------- Certificate ---------- */
-.cert-frame { display: grid; gap: 20px; justify-items: start; }
-.cert-frame img { width: 100%; height: auto; aspect-ratio: 2000 / 1414; border-radius: 4px; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .6); background: var(--paper); }
+.cert-frame { display: grid; gap: 22px; justify-items: start; }
+.cert-frame img { width: 100%; height: auto; aspect-ratio: 2000 / 1414; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(232, 243, 247, .3); background: var(--paper); }
 .cert-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-#dl-note { font: 400 0.88rem/1.5 var(--mono); color: var(--ink-dim); }
+#dl-note { font: 400 0.85rem/1.5 var(--mono); color: var(--foam-dim); }
 
-/* ---------- Goodbye ---------- */
-.goodbye { display: grid; gap: 24px; }
-.goodbye h2 em { color: var(--amber); }
-.video {
-  position: relative; width: 100%; max-width: 860px; aspect-ratio: 16 / 9;
-  border-radius: 6px; overflow: hidden; border: 1px solid var(--line);
-  background: radial-gradient(ellipse at 50% 60%, #163f74 0%, var(--blue-deep) 70%);
+/* ---------- Goodbye: the deepest water ---------- */
+.goodbye { display: grid; gap: 28px; justify-items: center; text-align: center; }
+.goodbye .section-head { justify-items: center; margin-bottom: 0; }
+.bye { position: relative; display: grid; justify-items: center; }
+.bye h2 { font-size: clamp(3.6rem, 14vw, 9rem); line-height: .9; }
+.bye h2 em { color: var(--ice); }
+.bye .reflect {
+  transform: scaleY(-1); margin-top: -0.12em; opacity: .38; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 62%); mask-image: linear-gradient(to top, #000 0%, transparent 62%);
 }
-.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.video-play {
-  position: absolute; inset: 0; width: 100%;
+.bye .reflect::after {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(0deg, var(--abyss) 0 2px, transparent 2px 5px);
+}
+.bye-note { color: var(--foam-dim); font-size: 1.12rem; max-width: 38rem; margin-top: -0.6em; }
+.video {
+  position: relative; width: 100%; max-width: 900px; aspect-ratio: 16 / 9;
+  border: 1px solid var(--sea-rule); background: #000; overflow: hidden;
+}
+.video iframe, #yt { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.poster {
+  position: absolute; inset: 0; width: 100%; border: 0; color: var(--foam);
   display: grid; place-content: center; justify-items: center; gap: 14px;
-  background: none; border: 0; color: var(--ink); font: 500 1rem/1.2 var(--body);
+  background:
+    linear-gradient(180deg, rgba(3, 24, 47, .55), rgba(3, 24, 47, .85)),
+    url("ship.jpg") center bottom / cover no-repeat;
+  font: 500 1rem/1.2 var(--body);
 }
 .play-icon {
-  width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--amber); color: var(--amber-ink); font-size: 1.6rem; padding-left: 5px;
+  width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--foam); color: var(--ink); font-size: 1.6rem; padding-left: 5px;
+  box-shadow: 0 0 0 10px rgba(232, 243, 247, .15);
   transition: transform .15s ease;
 }
-.video-play:hover .play-icon { transform: scale(1.06); }
-.song { color: var(--ink-dim); font-size: 0.88rem; }
-.song a { color: var(--amber); }
+.poster:hover .play-icon { transform: scale(1.06); }
+.sound-btn {
+  position: absolute; left: 12px; bottom: 56px; z-index: 2;
+  font: 600 0.95rem/1 var(--body); color: var(--ink); background: var(--foam);
+  border: 0; border-radius: 999px; padding: 13px 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .4);
+  animation: nudge 1.6s ease-in-out infinite;
+}
+@keyframes nudge { 50% { transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .sound-btn { animation: none; } }
+.song { color: var(--foam-dim); font: 400 0.85rem/1.5 var(--mono); }
+.song a { color: var(--ice); }
 
-footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: var(--ink-dim); font: 400 0.85rem/1.6 var(--mono); }
+footer { padding-block: 36px 100px; color: var(--foam-dim); font: 400 0.82rem/1.6 var(--mono); border-top: 1px solid var(--sea-rule); text-align: center; }
 
-@media (max-width: 860px) {
-  .hero-grid, .voyage-text { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+@media (max-width: 900px) {
+  .hero-grid, .voyage-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .desmos { grid-template-columns: minmax(0, 1fr); }
   .expr-list { border-right: 0; border-bottom: 1px solid #dfe5ec; }
   #plot { aspect-ratio: 4 / 3; height: auto; }
+  .desmos-sheet { box-shadow: 7px 7px 0 rgba(1, 81, 138, 0.9); margin-right: 7px; }
 }
-@media (max-width: 620px) {
-  section { padding-block: 56px; }
-  .proof-row { grid-template-columns: 44px minmax(0, 1fr); }
-  .proof-row .r { grid-column: 2; border-left: 0; padding-top: 0; font-size: .95rem; }
+@media (max-width: 640px) {
+  body { font-size: 1rem; }
+  .hero { padding-block: 48px 64px; }
+  .sea section { padding-block: 64px; }
+  .proof-sec { padding-bottom: 72px; }
+  .proof-row { grid-template-columns: 42px minmax(0, 1fr); }
   .proof-row > * { padding: 14px 14px; }
-  .proof-head .r { display: none; }
-  .title-block { grid-template-columns: minmax(0, 1fr); }
-  .title-block div { border-left: 0; border-top: 1px solid rgba(14, 51, 96, .35); }
-  .title-block div:first-child { border-top: 0; }
-  .dock { left: 16px; right: 16px; justify-content: flex-end; }
+  .proof-row .s { font-size: 1.3rem; }
+  .proof-row .r { grid-column: 2; border-left: 0; padding-top: 0; font-size: .95rem; }
+  .proof-row.head .r { display: none; }
+  .proof-row.conclude .r { line-height: 1.4; }
+  .horizon img { height: 72vw; min-height: 260px; }
+  .title-block { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); border-inline: 0; }
+  .problem-card { padding: 20px 18px; }
+  .problem-card .q { font-size: 1.05rem; }
+  .math { white-space: normal; }
+  .answer-row .btn[type="submit"] { flex: 1 1 100%; }
+  .dock { right: 12px; }
+  .dock button { padding: 10px 12px; font-size: .74rem; }
+  .sound-btn { bottom: 50px; left: 10px; font-size: .9rem; padding: 11px 15px; }
+  .play-icon { width: 62px; height: 62px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Opening gate: one tap starts the tune and the fireworks -->
-<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
-  <div class="gate-card">
-    <div class="eyebrow">Class 26B4 · Teachers' Day 2026</div>
+<!-- Opening: one tap starts the tune and the fireworks -->
+<div id="gate" class="gate" data-surface="sea" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="stage" id="stage1">
+    <div class="tag">Class 26B4 · Teachers' Day 2026</div>
     <h1 id="gate-title">Sir Salman, we made you <em>something.</em></h1>
     <p>Turn your sound on. There's music and fireworks, and every firework is a curve.</p>
     <button class="btn" id="open-btn" type="button">Light the fuse&nbsp;→</button>
-    <div class="gate-eq">lim<sub>t→0⁺</sub> (anticipation) = ∞</div>
+    <div class="eq">lim<sub>t→0⁺</sub> (anticipation) = ∞</div>
+  </div>
+  <div class="stage stage-2" id="stage2" hidden>
+    <div class="tag">From Class 26B4</div>
+    <h1>Happy Teachers' Day, <em>Sir!</em></h1>
+    <button class="btn" id="enter-btn" type="button" hidden>Read our message&nbsp;↓</button>
   </div>
 </div>
 
@@ -263,135 +363,152 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
 </div>
 
 <main>
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">f(Sir) = Happy Teachers' Day</div>
-        <h1>Happy Teachers' Day, <em>Sir Salman</em></h1>
-        <p>From all of us in <strong>Class 26B4</strong>. Thank you for everything you taught us, inside the syllabus and outside it.</p>
-      </div>
-      <div class="desmos" aria-label="A Desmos-style graph of a heart curve">
-        <div class="expr-list">
-          <div class="expr"><div class="n">1</div><div class="f"><span class="dot" style="background:#c74440"></span><span><i>x</i>(<i>t</i>) = 16 sin³<i>t</i></span></div></div>
-          <div class="expr"><div class="n">2</div><div class="f"><span class="dot" style="background:#c74440"></span><span><i>y</i>(<i>t</i>) = 13 cos <i>t</i> − 5 cos 2<i>t</i> − 2 cos 3<i>t</i> − cos 4<i>t</i></span></div></div>
-          <div class="expr"><div class="n">3</div><div class="f"><span class="dot" style="background:#2d70b3"></span><span>0 ≤ <i>t</i> ≤ 2π</span></div></div>
-          <div class="expr"><div class="n">4</div><div class="f"><span class="dot" style="background:#388c46"></span><span>"thank you, sir"</span></div></div>
+  <div class="paper-zone" id="paper" data-surface="paper">
+    <canvas id="draft" aria-hidden="true"></canvas>
+
+    <header class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="tag">DWG 26B4 · f(Sir) = Happy Teachers' Day</div>
+          <h1>Happy Teachers' Day, <span class="name">Sir Salman</span></h1>
+          <div class="dim"><span>Greatness · not to scale</span></div>
+          <p>From all of us in <strong>Class 26B4</strong>. Thank you for everything you taught us, inside the syllabus and outside it.</p>
         </div>
-        <div class="plot"><canvas id="plot"></canvas></div>
+        <div class="desmos-sheet">
+          <div class="desmos" aria-label="A Desmos-style graph of a heart curve">
+            <div class="expr-list">
+              <div class="expr"><div class="n">1</div><div class="f"><span class="dot" style="background:#c74440"></span><span><i>x</i>(<i>t</i>) = 16 sin³<i>t</i></span></div></div>
+              <div class="expr"><div class="n">2</div><div class="f"><span class="dot" style="background:#c74440"></span><span><i>y</i>(<i>t</i>) = 13 cos <i>t</i> − 5 cos 2<i>t</i> − 2 cos 3<i>t</i> − cos 4<i>t</i></span></div></div>
+              <div class="expr"><div class="n">3</div><div class="f"><span class="dot" style="background:#2d70b3"></span><span>0 ≤ <i>t</i> ≤ 2π</span></div></div>
+              <div class="expr"><div class="n">4</div><div class="f"><span class="dot" style="background:#388c46"></span><span>"thank you, sir"</span></div></div>
+            </div>
+            <div class="plot"><canvas id="plot"></canvas></div>
+          </div>
+          <div class="sheet-block"><div>Fig. 2 · Plotted in Desmos, as taught</div><div>26B4</div></div>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <section id="proof">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Theorem 26B4</div>
-        <h2>Sir Salman is a legend.</h2>
-        <p>A two-column proof, the way you taught us to write them.</p>
+    <section class="proof-sec" id="proof">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="tag">Theorem 26B4</div>
+          <h2>Sir Salman is a legend.</h2>
+          <p>A two-column proof, the way you taught us to write them.</p>
+        </div>
+        <div class="proof" role="table" aria-label="Two-column proof">
+          <div class="proof-row head" role="row"><div class="k" role="columnheader">#</div><div class="s" role="columnheader">Statement</div><div class="r" role="columnheader">Reason</div></div>
+          <div class="proof-row" role="row"><div class="k" role="cell">1</div><div class="s" role="cell">He taught us Desmos.</div><div class="r" role="cell">Equations stopped being symbols and became pictures we could actually see.</div></div>
+          <div class="proof-row" role="row"><div class="k" role="cell">2</div><div class="s" role="cell">He was always online in the group.</div><div class="r" role="cell">No doubt went unanswered, whatever the hour.</div></div>
+          <div class="proof-row" role="row"><div class="k" role="cell">3</div><div class="s" role="cell">He never minded our jokes.</div><div class="r" role="cell">Given. (Some of them were even funny.)</div></div>
+          <div class="proof-row" role="row"><div class="k" role="cell">4</div><div class="s" role="cell">He taught really, really well.</div><div class="r" role="cell">See: every single class.</div></div>
+          <div class="proof-row" role="row"><div class="k" role="cell">5</div><div class="s" role="cell">We aced one of the hardest subjects known to mankind.</div><div class="r" role="cell">Follows from 1, 2, 3 and 4.</div></div>
+          <div class="proof-row" role="row"><div class="k" role="cell">6</div><div class="s" role="cell">He shared his own story with us.</div><div class="r" role="cell">And it stayed with us.</div></div>
+          <div class="proof-row conclude" role="row"><div class="k" role="cell">∴</div><div class="s" role="cell">Sir Salman is a legend.</div><div class="r" role="cell">∎ Q.E.D.</div></div>
+        </div>
       </div>
-      <div class="proof" role="table" aria-label="Two-column proof">
-        <div class="proof-row proof-head" role="row"><div class="k" role="columnheader">#</div><div class="s" role="columnheader">Statement</div><div class="r" role="columnheader">Reason</div></div>
-        <div class="proof-row" role="row"><div class="k" role="cell">1</div><div class="s" role="cell">He taught us Desmos.</div><div class="r" role="cell">Equations stopped being symbols and became pictures we could actually see.</div></div>
-        <div class="proof-row" role="row"><div class="k" role="cell">2</div><div class="s" role="cell">He was always online in the group.</div><div class="r" role="cell">No doubt went unanswered, whatever the hour.</div></div>
-        <div class="proof-row" role="row"><div class="k" role="cell">3</div><div class="s" role="cell">He never minded our jokes.</div><div class="r" role="cell">Given. (Some of them were even funny.)</div></div>
-        <div class="proof-row" role="row"><div class="k" role="cell">4</div><div class="s" role="cell">He taught really, really well.</div><div class="r" role="cell">See: every single class.</div></div>
-        <div class="proof-row" role="row"><div class="k" role="cell">5</div><div class="s" role="cell">We aced one of the hardest subjects known to mankind.</div><div class="r" role="cell">Follows from 1, 2, 3 and 4.</div></div>
-        <div class="proof-row" role="row"><div class="k" role="cell">6</div><div class="s" role="cell">He shared his own story with us.</div><div class="r" role="cell">And it stayed with us.</div></div>
-        <div class="proof-row conclude" role="row"><div class="k" role="cell">∴</div><div class="s" role="cell">Sir Salman is a legend.</div><div class="r" role="cell">∎ Q.E.D.</div></div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <section id="voyage">
-    <div class="wrap">
-      <figure class="voyage-figure">
-        <img src="ship.jpg" alt="A blueprint drawing of a tall sailing ship on the sea" width="1308" height="736">
-        <figcaption class="title-block">
-          <div><span>Vessel</span>S.S. Salman</div>
-          <div><span>Heading</span>Germany</div>
-          <div><span>Cargo</span>All our best wishes</div>
-        </figcaption>
-      </figure>
-      <div class="voyage-text">
+  <figure class="horizon" data-surface="sea" style="margin:0">
+    <img src="ship.jpg" alt="A blueprint drawing of a tall sailing ship on the sea" width="1308" height="736">
+    <figcaption class="title-block">
+      <div><span>Vessel</span>S.S. Salman</div>
+      <div><span>Heading</span>Germany</div>
+      <div><span>Cargo</span>Our best wishes</div>
+      <div><span>Crew</span>Class 26B4</div>
+    </figcaption>
+  </figure>
+
+  <div class="sea" data-surface="sea">
+    <section id="voyage">
+      <div class="wrap voyage-grid">
         <div>
-          <div class="eyebrow">Next stop: Germany</div>
-          <h2 style="margin-top:14px"><em>Viel Glück,</em> Sir.</h2>
+          <div class="section-head" style="margin-bottom:0">
+            <div class="tag">Next stop · Germany</div>
+            <h2><em>Viel Glück,</em> Sir.</h2>
+          </div>
           <p class="gloss">viel Glück (German): good luck</p>
         </div>
-        <div class="body">
+        <div class="voyage-body">
           <p>You're heading to Germany, and we are so proud of you. New country, new chapter, new students who have no idea how lucky they are.</p>
           <p>We hope it turns out to be everything you've been working toward. Good luck on the journey ahead.</p>
           <p>Wherever you go, <strong>Class 26B4 will always remember you.</strong></p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="question">
-    <div class="wrap problem">
-      <div class="section-head" style="margin-bottom:0">
-        <div class="eyebrow">Final exam · 1 question · 1 mark</div>
-        <h2>One last question, Sir. This one's for you.</h2>
-        <p>For once, we set the paper.</p>
-      </div>
-      <div class="problem-card">
-        <p class="q">Let <span class="math"><i>G</i>(<i>t</i>)</span> be how grateful Class 26B4 is to you, <span class="math"><i>t</i></span> days after your first class with us. We know that</p>
-        <p class="q" style="text-align:center"><span class="math"><i>G</i>(0) = 1</span> &nbsp;and&nbsp; <span class="math">d<i>G</i>/d<i>t</i> = <i>G</i></span></p>
-        <p class="q">Find <span class="math">lim<sub><i>t</i>→∞</sub> <i>G</i>(<i>t</i>)</span>.</p>
-        <form id="answer-form" class="answer-row" novalidate>
-          <label for="answer">Your answer</label>
-          <input id="answer" name="answer" type="text" autocomplete="off" spellcheck="false" placeholder="type a value, or ∞">
-          <button type="button" class="btn ghost symbol-btn" id="inf-btn" aria-label="Insert infinity symbol">∞</button>
-          <button type="submit" class="btn">Check</button>
-        </form>
-        <p id="feedback" role="status" aria-live="polite"></p>
-        <button type="button" class="text-btn" id="show-sol">Show the working</button>
-        <div class="solution" id="solution" hidden>
-          <div>d<i>G</i>/d<i>t</i> = <i>G</i> &nbsp;⇒&nbsp; <i>G</i>(<i>t</i>) = <i>C</i>e<sup><i>t</i></sup></div>
-          <div><i>G</i>(0) = 1 &nbsp;⇒&nbsp; <i>C</i> = 1, so <i>G</i>(<i>t</i>) = e<sup><i>t</i></sup></div>
-          <div>e<sup><i>t</i></sup> → ∞ as <i>t</i> → ∞</div>
-          <div><b>Answer: ∞. Our gratitude grows exponentially and never converges.</b></div>
+    <section id="question">
+      <div class="wrap problem">
+        <div class="section-head" style="margin-bottom:0">
+          <div class="tag">Final exam · 1 question · 1 mark</div>
+          <h2>One last question, Sir. This one's for you.</h2>
+          <p>For once, we set the paper.</p>
+        </div>
+        <div class="problem-card">
+          <p class="q">Let <span class="math"><i>G</i>(<i>t</i>)</span> be how grateful Class 26B4 is to you, <span class="math"><i>t</i></span> days after your first class with us. We know that</p>
+          <p class="q center"><span class="math"><i>G</i>(0) = 1</span> &nbsp;and&nbsp; <span class="math">d<i>G</i>/d<i>t</i> = <i>G</i></span></p>
+          <p class="q">Find <span class="math">lim<sub><i>t</i>→∞</sub> <i>G</i>(<i>t</i>)</span>.</p>
+          <form id="answer-form" class="answer-row" novalidate>
+            <label for="answer">Your answer</label>
+            <input id="answer" name="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type a value, or ∞">
+            <button type="button" class="btn ghost symbol-btn" id="inf-btn" aria-label="Insert infinity symbol">∞</button>
+            <button type="submit" class="btn">Check</button>
+          </form>
+          <p id="feedback" role="status" aria-live="polite"></p>
+          <button type="button" class="text-btn" id="show-sol">Show the working</button>
+          <div class="solution" id="solution" hidden>
+            <div>d<i>G</i>/d<i>t</i> = <i>G</i> &nbsp;⇒&nbsp; <i>G</i>(<i>t</i>) = <i>C</i>e<sup><i>t</i></sup></div>
+            <div><i>G</i>(0) = 1 &nbsp;⇒&nbsp; <i>C</i> = 1, so <i>G</i>(<i>t</i>) = e<sup><i>t</i></sup></div>
+            <div>e<sup><i>t</i></sup> → ∞ as <i>t</i> → ∞</div>
+            <div><b>Answer: ∞. Our gratitude grows exponentially and never converges.</b></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="certificate">
-    <div class="wrap cert-frame">
-      <div class="section-head" style="margin-bottom:0">
-        <div class="eyebrow">Issued by Class 26B4</div>
-        <h2>Your certificate, Sir.</h2>
-        <p>Download it and keep it. Proof, in writing, that you were a great teacher.</p>
+    <section id="certificate">
+      <div class="wrap cert-frame">
+        <div class="section-head" style="margin-bottom:0">
+          <div class="tag">Issued by Class 26B4</div>
+          <h2>Your certificate, Sir.</h2>
+          <p>Download it and keep it. Proof, in writing, that you were a great teacher.</p>
+        </div>
+        <img id="cert-img" alt="Certificate of Appreciation presented to Sir Salman by Class 26B4">
+        <div class="cert-actions">
+          <button class="btn" type="button" id="dl-btn">Download certificate</button>
+          <span id="dl-note" role="status" aria-live="polite"></span>
+        </div>
       </div>
-      <img id="cert-img" alt="Certificate of Appreciation presented to Sir Salman by Class 26B4">
-      <div class="cert-actions">
-        <button class="btn" type="button" id="dl-btn">Download certificate (PNG)</button>
-        <span id="dl-note" role="status" aria-live="polite"></span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="goodbye">
-    <div class="wrap goodbye">
-      <div class="section-head" style="margin-bottom:0">
-        <div class="eyebrow">Class dismissed</div>
-        <h2>Goodbye, <em>Sir.</em></h2>
-        <p>Thank you for every class, every late-night reply in the group, and every story. Go and do great things in Germany. This song is from all of us.</p>
+    <section id="goodbye">
+      <div class="wrap goodbye">
+        <div class="section-head">
+          <div class="tag">Class dismissed</div>
+        </div>
+        <div class="bye">
+          <h2>Goodbye, <em>Sir.</em></h2>
+          <h2 class="reflect" aria-hidden="true">Goodbye, <em>Sir.</em></h2>
+        </div>
+        <p class="bye-note">Thank you for every class, every late-night reply in the group, and every story. Go and do great things in Germany. This song is from all of us.</p>
+        <div class="video" id="video">
+          <div id="yt"></div>
+          <button type="button" class="poster" id="poster">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span>Play our song</span>
+          </button>
+          <button type="button" class="sound-btn" id="sound-btn" hidden>♪ Tap for sound</button>
+        </div>
+        <p class="song">Keane · Somewhere Only We Know · <a href="https://youtu.be/Oextk-If8HQ?t=20" target="_blank" rel="noopener">Open on YouTube</a></p>
       </div>
-      <div class="video" id="video">
-        <button type="button" class="video-play" id="video-play">
-          <span class="play-icon" aria-hidden="true">▶</span>
-          <span>Play our song</span>
-        </button>
-      </div>
-      <p class="song mono">♪ Keane · Somewhere Only We Know · <a href="https://youtu.be/Oextk-If8HQ?t=20" target="_blank" rel="noopener">Watch on YouTube</a></p>
-    </div>
-  </section>
+    </section>
+
+    <footer>
+      <div class="wrap">Made with love, and slightly too many fireworks, by Class 26B4. Thank you, Sir.</div>
+    </footer>
+  </div>
 </main>
-
-<footer>
-  <div class="wrap">Made with love, and slightly too many fireworks, by Class 26B4. Thank you, Sir.</div>
-</footer>
 
 <script>
 (() => {
@@ -423,7 +540,7 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     o.start(t); o.stop(t + dur + 0.5);
   }
 
-  // "Ode to Joy" (Beethoven, a German composer — fitting for the voyage). [midi note, beats]
+  // "Ode to Joy" (Beethoven, a German composer, for the voyage). [midi note, beats]
   const C = 72, D = 74, E = 76, F = 77, G = 79, Gl = 67;
   const A = [[E,1],[E,1],[F,1],[G,1],[G,1],[F,1],[E,1],[D,1],[C,1],[C,1],[D,1],[E,1]];
   const B = [[D,1],[D,1],[E,1],[C,1],[D,1],[E,.5],[F,.5],[E,1],[C,1],[D,1],[E,.5],[F,.5],[E,1],[D,1],[C,1],[D,1],[Gl,2]];
@@ -437,6 +554,7 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
   function playTune() {
     const ctx = audio(); if (!ctx) return;
     stopTune();
+    pauseSong();
     tuneOut = ctx.createGain(); tuneOut.gain.value = 0.2; tuneOut.connect(ctx.destination);
     const t0 = ctx.currentTime + 0.12;
     let t = t0;
@@ -479,6 +597,63 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     s.start();
   }
 
+  /* ====================== Drafting lines on the paper (like the blueprint) ====================== */
+  const paper = $('paper'), draft = $('draft'), dc = draft.getContext('2d');
+  function seeded(seed) {
+    return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  }
+  function drawDraft() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = paper.offsetWidth, h = paper.offsetHeight;
+    draft.width = w * dpr; draft.height = h * dpr;
+    dc.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dc.clearRect(0, 0, w, h);
+    const r = seeded(2026), R = (a, b) => a + r() * (b - a);
+    const ink = (a) => `rgba(13, 27, 46, ${a})`;
+    dc.lineCap = 'butt';
+
+    // long construction lines
+    for (let i = 0; i < 9; i++) {
+      const y = Math.round(R(0, h)) + .5;
+      dc.strokeStyle = ink(R(.1, .28)); dc.lineWidth = r() < .2 ? 1.6 : .8;
+      dc.beginPath(); dc.moveTo(R(-50, w * .3), y); dc.lineTo(R(w * .6, w + 50), y); dc.stroke();
+    }
+    for (let i = 0; i < 8; i++) {
+      const x = Math.round(R(0, w)) + .5;
+      dc.strokeStyle = ink(R(.1, .26)); dc.lineWidth = r() < .2 ? 1.6 : .8;
+      dc.beginPath(); dc.moveTo(x, R(0, h * .4)); dc.lineTo(x, R(h * .5, h)); dc.stroke();
+    }
+    // circles with crosshairs
+    for (let i = 0; i < 6; i++) {
+      const x = R(0, w), y = R(0, h), rad = R(8, 26);
+      dc.strokeStyle = ink(.32); dc.lineWidth = 1;
+      dc.beginPath(); dc.arc(x, y, rad, 0, TAU); dc.stroke();
+      dc.beginPath(); dc.moveTo(x - rad * 2.2, y); dc.lineTo(x + rad * 2.2, y); dc.moveTo(x, y - rad * 2.2); dc.lineTo(x, y + rad * 2.2); dc.stroke();
+    }
+    // dimension lines with arrowheads and tiny labels
+    const tags = ['R 26', 'Ø 4B', 'SECT. A–A', '2 400', 'π/2', 'DET. 3', '1 : 1', 'θ = 45°'];
+    dc.font = '500 10px "IBM Plex Mono", Consolas, monospace'; dc.textAlign = 'center';
+    for (let i = 0; i < 7; i++) {
+      const x1 = R(0, w * .8), len = R(60, 220), y = Math.round(R(0, h)) + .5, x2 = Math.min(w - 4, x1 + len);
+      dc.strokeStyle = ink(.4); dc.fillStyle = ink(.5); dc.lineWidth = 1;
+      dc.beginPath(); dc.moveTo(x1, y); dc.lineTo(x2, y);
+      dc.moveTo(x1, y - 7); dc.lineTo(x1, y + 7); dc.moveTo(x2, y - 7); dc.lineTo(x2, y + 7); dc.stroke();
+      dc.beginPath(); dc.moveTo(x1, y); dc.lineTo(x1 + 7, y - 3); dc.lineTo(x1 + 7, y + 3); dc.closePath(); dc.fill();
+      dc.beginPath(); dc.moveTo(x2, y); dc.lineTo(x2 - 7, y - 3); dc.lineTo(x2 - 7, y + 3); dc.closePath(); dc.fill();
+      dc.fillText(tags[i % tags.length], (x1 + x2) / 2, y - 6);
+    }
+    // little blocks of typewritten notes, like on a drawing
+    for (let i = 0; i < 6; i++) {
+      const x = R(0, w - 90), y = R(0, h - 40), rows = 3 + (r() * 3 | 0);
+      dc.fillStyle = ink(.22);
+      for (let j = 0; j < rows; j++) {
+        let cx = x;
+        const words = 2 + (r() * 4 | 0);
+        for (let k = 0; k < words; k++) { const ww = R(8, 26); dc.fillRect(cx, y + j * 7, ww, 2.4); cx += ww + 4; }
+      }
+    }
+  }
+
   /* ====================== Fireworks: every burst is a curve ====================== */
   const fw = $('fw'), fx = fw.getContext('2d');
   let W = 0, H = 0;
@@ -488,8 +663,6 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     fw.width = W * dpr; fw.height = H * dpr;
     fx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  resizeFw();
-  addEventListener('resize', () => { resizeFw(); drawPlot(1); });
 
   const polar = (r, t) => [r * Math.cos(t), r * Math.sin(t)];
   const CURVES = [
@@ -502,35 +675,38 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     { label: 'r² = cos 2θ',        span: TAU,     f: (t) => { const d = 1 + Math.sin(t) ** 2; return [1.3 * Math.cos(t) / d, 1.3 * Math.sin(t) * Math.cos(t) / d]; } },
     { label: 'r = θ',              span: 4 * Math.PI, f: (t) => polar(t / (4 * Math.PI), t) },
   ];
-  const PALETTES = [
-    ['#ffd36b', '#fff4d6'], ['#7fe3ff', '#ffffff'], ['#ff9ad5', '#ffd36b'],
-    ['#b8f7a8', '#7fe3ff'], ['#ff8a5c', '#ffd36b'], ['#c9b8ff', '#ffffff'],
-  ];
+  // bright light on the dark sea; ink and sail blue on the paper
+  const PALETTES = {
+    sea: [['#ffffff', '#8fd3ff'], ['#ffe39a', '#ffffff'], ['#8fd3ff', '#c9f0ff'], ['#ffb3d9', '#ffe39a'], ['#a8ffd0', '#8fd3ff']],
+    paper: [['#0d1b2e', '#01518a'], ['#01518a', '#2f8fd6'], ['#0d1b2e', '#6999b3']],
+  };
 
   const sparks = [], rockets = [], labels = [];
   let running = false, last = 0;
 
-  function burst(x, y) {
+  function surfaceAt(x, y) {
+    const el = document.elementFromPoint(Math.max(1, Math.min(W - 1, x)), Math.max(1, Math.min(H - 1, y)));
+    const s = el && el.closest('[data-surface]');
+    return s ? s.dataset.surface : 'sea';
+  }
+
+  function burst(x, y, mode) {
     const curve = CURVES[(Math.random() * CURVES.length) | 0];
-    const pal = PALETTES[(Math.random() * PALETTES.length) | 0];
-    const n = W < 600 ? 70 : 110;
-    const R = rand(80, 140) * (W < 600 ? 0.7 : 1);
+    const pals = PALETTES[mode];
+    const pal = pals[(Math.random() * pals.length) | 0];
+    const small = W < 600;
+    const n = small ? 70 : 110;
+    const R = rand(80, 140) * (small ? 0.68 : 1);
     const drag = 0.93;
     for (let i = 0; i < n; i++) {
       const [ux, uy] = curve.f((i / n) * curve.span);
-      sparks.push({
-        x, y, px: x, py: y,
-        vx: ux * R * (1 - drag), vy: uy * R * (1 - drag),
-        drag, life: 0, max: rand(80, 105),
-        color: pal[i % 2 === 0 ? 0 : 1],
-      });
+      sparks.push({ x, y, px: x, py: y, vx: ux * R * (1 - drag), vy: uy * R * (1 - drag), drag, life: 0, max: rand(80, 105), color: pal[i % 2], mode });
     }
-    // a little glitter in the middle
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 16; i++) {
       const a = rand(0, TAU), s = rand(0.5, 2);
-      sparks.push({ x, y, px: x, py: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, drag: 0.96, life: 0, max: rand(40, 70), color: '#ffffff' });
+      sparks.push({ x, y, px: x, py: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, drag: 0.96, life: 0, max: rand(40, 70), color: pal[0], mode });
     }
-    labels.push({ text: curve.label, x, y: y + R * 1.15 + 18, life: 0, max: 120 });
+    labels.push({ text: curve.label, x, y: y + R * 1.15 + 18, life: 0, max: 120, mode });
     pop(true);
   }
 
@@ -552,17 +728,17 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
   function frame(now) {
     const k = Math.min((now - last) / 16.67, 3); last = now;
     fx.clearRect(0, 0, W, H);
-    fx.globalCompositeOperation = 'lighter';
 
     for (let i = rockets.length - 1; i >= 0; i--) {
       const r = rockets[i];
       r.y += r.vy * k; r.wob += 0.3 * k;
       const rx = r.x + Math.sin(r.wob) * 1.2;
-      fx.fillStyle = 'rgba(255, 220, 150, 0.9)';
+      const ink = surfaceAt(rx, r.y) === 'paper';
+      fx.fillStyle = ink ? 'rgba(13, 27, 46, 0.9)' : 'rgba(255, 236, 190, 0.95)';
       fx.beginPath(); fx.arc(rx, r.y, 2.2, 0, TAU); fx.fill();
-      fx.fillStyle = 'rgba(255, 180, 90, 0.35)';
+      fx.fillStyle = ink ? 'rgba(1, 81, 138, 0.4)' : 'rgba(143, 211, 255, 0.4)';
       fx.beginPath(); fx.arc(rx, r.y + 9, 1.6, 0, TAU); fx.fill();
-      if (r.y <= r.ty) { rockets.splice(i, 1); burst(rx, r.y); }
+      if (r.y <= r.ty) { rockets.splice(i, 1); burst(rx, r.y, ink ? 'paper' : 'sea'); }
     }
 
     fx.lineCap = 'round';
@@ -575,8 +751,9 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
       p.life += k;
       const a = 1 - p.life / p.max;
       if (a <= 0) { sparks.splice(i, 1); continue; }
+      fx.globalCompositeOperation = p.mode === 'sea' ? 'lighter' : 'source-over';
       fx.globalAlpha = a;
-      fx.strokeStyle = p.color; fx.lineWidth = 2.2;
+      fx.strokeStyle = p.color; fx.lineWidth = p.mode === 'sea' ? 2.2 : 1.8;
       fx.beginPath(); fx.moveTo(p.px - (p.x - p.px) * 2, p.py - (p.y - p.py) * 2); fx.lineTo(p.x, p.y); fx.stroke();
     }
     fx.globalAlpha = 1;
@@ -587,9 +764,9 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     for (let i = labels.length - 1; i >= 0; i--) {
       const l = labels[i];
       l.life += k;
-      const a = Math.min(1, l.life / 15) * Math.max(0, 1 - l.life / l.max);
       if (l.life >= l.max) { labels.splice(i, 1); continue; }
-      fx.fillStyle = `rgba(234, 243, 255, ${a * 0.9})`;
+      const a = Math.min(1, l.life / 15) * Math.max(0, 1 - l.life / l.max);
+      fx.fillStyle = l.mode === 'sea' ? `rgba(232, 243, 247, ${a * 0.9})` : `rgba(13, 27, 46, ${a * 0.85})`;
       fx.fillText(l.text, l.x, l.y);
     }
 
@@ -599,21 +776,9 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
 
   $('fire-btn').addEventListener('click', () => { audio(); show(7, 420); });
 
-  /* ====================== Opening ====================== */
-  const gate = $('gate');
-  $('open-btn').addEventListener('click', () => {
-    audio();
-    playTune();
-    gate.classList.add('open');
-    setTimeout(() => { gate.hidden = true; }, 950);
-    show(14, 520);
-    drawPlot(0);
-  });
-  $('open-btn').focus({ preventScroll: true });
-
   /* ====================== Desmos-style plot ====================== */
   const plot = $('plot'), pc = plot.getContext('2d');
-  let plotAnim = 0;
+  let plotProgress = 1;
   function drawPlot(progress) {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const w = plot.clientWidth, h = plot.clientHeight;
@@ -621,49 +786,37 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     plot.width = w * dpr; plot.height = h * dpr;
     pc.setTransform(dpr, 0, 0, dpr, 0, 0);
     pc.fillStyle = '#ffffff'; pc.fillRect(0, 0, w, h);
-    const unit = Math.min(w, h) / 44; // 1 unit in px; heart spans about ±17
+    const unit = Math.min(w, h) / 44; // the heart spans about ±17 units
     const ox = w / 2, oy = h / 2 + unit * 1.5;
 
-    for (let gx = -40; gx <= 40; gx++) {
-      const x = ox + gx * unit; if (x < 0 || x > w) continue;
-      pc.strokeStyle = gx % 5 === 0 ? '#d6dde5' : '#eef1f4'; pc.lineWidth = 1;
-      pc.beginPath(); pc.moveTo(x, 0); pc.lineTo(x, h); pc.stroke();
-    }
-    for (let gy = -40; gy <= 40; gy++) {
-      const y = oy - gy * unit; if (y < 0 || y > h) continue;
-      pc.strokeStyle = gy % 5 === 0 ? '#d6dde5' : '#eef1f4';
-      pc.beginPath(); pc.moveTo(0, y); pc.lineTo(w, y); pc.stroke();
+    for (let g = -40; g <= 40; g++) {
+      pc.strokeStyle = g % 5 === 0 ? '#d6dde5' : '#eef1f4'; pc.lineWidth = 1;
+      const x = ox + g * unit; if (x >= 0 && x <= w) { pc.beginPath(); pc.moveTo(x, 0); pc.lineTo(x, h); pc.stroke(); }
+      const y = oy - g * unit; if (y >= 0 && y <= h) { pc.beginPath(); pc.moveTo(0, y); pc.lineTo(w, y); pc.stroke(); }
     }
     pc.strokeStyle = '#3a4654'; pc.lineWidth = 1.4;
     pc.beginPath(); pc.moveTo(0, oy); pc.lineTo(w, oy); pc.moveTo(ox, 0); pc.lineTo(ox, h); pc.stroke();
-    pc.fillStyle = '#5b6775'; pc.font = '11px "IBM Plex Mono", Consolas, monospace'; pc.textAlign = 'center';
+    pc.fillStyle = '#5b6775'; pc.font = '11px "IBM Plex Mono", Consolas, monospace';
     for (let v = -15; v <= 15; v += 5) {
       if (!v) continue;
-      const x = ox + v * unit; if (x > 8 && x < w - 8) pc.fillText(v, x, oy + 14);
-      const y = oy - v * unit; if (y > 10 && y < h - 6) { pc.textAlign = 'right'; pc.fillText(v, ox - 5, y + 4); pc.textAlign = 'center'; }
+      const x = ox + v * unit; if (x > 10 && x < w - 10) { pc.textAlign = 'center'; pc.fillText(v, x, oy + 14); }
+      const y = oy - v * unit; if (y > 10 && y < h - 6) { pc.textAlign = 'right'; pc.fillText(v, ox - 5, y + 4); }
     }
 
     const steps = 400, upto = Math.max(1, Math.floor(steps * progress));
+    const pt = (t) => [ox + 16 * Math.pow(Math.sin(t), 3) * unit, oy - (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * unit];
     pc.strokeStyle = '#c74440'; pc.lineWidth = 2.6; pc.lineJoin = 'round';
     pc.beginPath();
-    for (let i = 0; i <= upto; i++) {
-      const t = (i / steps) * TAU;
-      const x = 16 * Math.pow(Math.sin(t), 3);
-      const y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
-      const X = ox + x * unit, Y = oy - y * unit;
-      i ? pc.lineTo(X, Y) : pc.moveTo(X, Y);
-    }
+    for (let i = 0; i <= upto; i++) { const [X, Y] = pt((i / steps) * TAU); i ? pc.lineTo(X, Y) : pc.moveTo(X, Y); }
     pc.stroke();
     if (progress >= 1) {
-      pc.fillStyle = '#388c46'; pc.font = 'italic 20px "Instrument Serif", Georgia, serif';
-      pc.fillText('thank you, sir', ox, oy + 4 * unit);
+      pc.fillStyle = '#388c46'; pc.textAlign = 'center'; pc.font = 'italic 20px "Instrument Serif", Georgia, serif';
+      pc.fillText('thank you, sir', ox, oy + 7 * unit);
     } else {
-      const t = (upto / steps) * TAU;
-      const X = ox + 16 * Math.pow(Math.sin(t), 3) * unit;
-      const Y = oy - (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) * unit;
+      const [X, Y] = pt((upto / steps) * TAU);
       pc.fillStyle = '#c74440'; pc.beginPath(); pc.arc(X, Y, 5, 0, TAU); pc.fill();
     }
-    plotAnim = progress;
+    plotProgress = progress;
   }
   function tracePlot() {
     if (reduceMotion) return drawPlot(1);
@@ -675,16 +828,100 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     };
     requestAnimationFrame(step);
   }
-  drawPlot(1);
-  $('open-btn').addEventListener('click', tracePlot);
+
+  /* ====================== Goodbye song (YouTube player API) ====================== */
+  // The player loads as soon as the site opens, so it is ready by the end.
+  // It starts on its own when the goodbye appears. If the browser blocks sound
+  // (phones usually do), it plays muted and asks for one tap.
+  const poster = $('poster'), soundBtn = $('sound-btn');
+  let yt = null, ytReady = false, ytLoading = false, wantSong = false;
+  function loadYT() {
+    if (ytLoading) return;
+    ytLoading = true;
+    window.onYouTubeIframeAPIReady = () => {
+      yt = new YT.Player('yt', {
+        videoId: 'Oextk-If8HQ',
+        playerVars: { start: 20, playsinline: 1, rel: 0 },
+        events: {
+          onReady: () => { ytReady = true; if (wantSong) playSong(); },
+          onStateChange: (e) => {
+            if (e.data === YT.PlayerState.PLAYING) { poster.hidden = true; stopTune(); }
+          },
+        },
+      });
+    };
+    const s = document.createElement('script');
+    s.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(s);
+  }
+  const isPlaying = () => [YT.PlayerState.PLAYING, YT.PlayerState.BUFFERING].includes(yt.getPlayerState());
+  function playSong() {
+    wantSong = true;
+    stopTune();
+    loadYT();
+    if (!ytReady) return;
+    yt.unMute(); yt.setVolume(100); yt.playVideo();
+    setTimeout(() => {
+      if (isPlaying()) { if (yt.isMuted()) soundBtn.hidden = false; return; }
+      // Sound was blocked: play muted instead and ask for one tap.
+      yt.mute(); yt.playVideo();
+      setTimeout(() => {
+        if (isPlaying()) { soundBtn.hidden = false; return; }
+        // Even muted playback was blocked: uncover YouTube's own play button.
+        poster.hidden = true;
+      }, 1500);
+    }, 1400);
+  }
+  function pauseSong() {
+    if (ytReady && yt.getPlayerState() === YT.PlayerState.PLAYING) yt.pauseVideo();
+  }
+  poster.addEventListener('click', () => {
+    audio();
+    if (ytReady) poster.hidden = true;
+    playSong();
+  });
+  soundBtn.addEventListener('click', () => {
+    if (!ytReady) return;
+    yt.unMute(); yt.setVolume(100); yt.playVideo();
+    soundBtn.hidden = true;
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries, obs) => {
+      if (entries.some((e) => e.isIntersecting) && gate.hidden) { playSong(); obs.disconnect(); }
+    }, { threshold: 0.5 }).observe($('video'));
+  }
+
+  /* ====================== Opening ====================== */
+  const gate = $('gate');
+  let gateTimer = null;
+  function closeGate() {
+    clearTimeout(gateTimer);
+    if (gate.classList.contains('open')) return;
+    gate.classList.add('open');
+    setTimeout(() => { gate.hidden = true; }, 900);
+    tracePlot();
+  }
+  $('open-btn').addEventListener('click', () => {
+    audio();
+    playTune();
+    loadYT();
+    $('stage1').hidden = true;
+    $('stage2').hidden = false;
+    show(12, 560);
+    setTimeout(() => { const b = $('enter-btn'); b.hidden = false; b.focus({ preventScroll: true }); }, 2500);
+    gateTimer = setTimeout(closeGate, 12000);
+  });
+  $('enter-btn').addEventListener('click', closeGate);
+  $('open-btn').focus({ preventScroll: true });
 
   /* ====================== Final question ====================== */
   const ACCEPT = ['∞', '+∞', 'inf', '+inf', 'infinity', '+infinity', 'infinite', 'diverges', 'itdiverges', 'dne', 'doesnotexist'];
   const fb = $('feedback'), ans = $('answer'), sol = $('solution');
   let solved = false;
-  $('inf-btn').addEventListener('click', () => { ans.value += '∞'; ans.focus(); });
+  $('inf-btn').addEventListener('click', () => { ans.value += '∞'; });
   $('answer-form').addEventListener('submit', (e) => {
     e.preventDefault();
+    ans.blur();
     const v = ans.value.toLowerCase().replace(/\s+/g, '');
     if (!v) { fb.className = 'bad'; fb.textContent = 'Write an answer first, Sir. Blank papers get zero.'; return; }
     if (ACCEPT.includes(v)) {
@@ -701,13 +938,12 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
   $('show-sol').addEventListener('click', () => { sol.hidden = !sol.hidden; });
 
   /* ====================== Certificate ====================== */
-  const cert = document.createElement('canvas');
-  cert.width = 2000; cert.height = 1414;
+  const shipImg = new Image();
+  shipImg.src = 'ship.jpg';
 
   function wrapCentered(ctx, text, cx, y, maxW, lh) {
-    const words = text.split(' ');
     let line = '';
-    for (const w of words) {
+    for (const w of text.split(' ')) {
       const test = line ? line + ' ' + w : w;
       if (ctx.measureText(test).width > maxW && line) { ctx.fillText(line, cx, y); line = w; y += lh; }
       else line = test;
@@ -716,18 +952,25 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     return y + lh;
   }
 
-  function drawCert() {
-    const c = cert.getContext('2d'), CW = cert.width, CH = cert.height;
-    const NAVY = '#0e3360', BLUE = '#1f5f9e', MUTED = '#4a6380', AMBER = '#f4b942';
-    const serif = '"Instrument Serif", Georgia, serif', sans = '"IBM Plex Sans", "Segoe UI", sans-serif', mono = '"IBM Plex Mono", Consolas, monospace';
+  function drawCert(cv, withShip) {
+    const c = cv.getContext('2d'), CW = cv.width, CH = cv.height;
+    const NAVY = '#0d1b2e', SEA = '#01518a', MUTED = '#3b5873';
+    const serif = '"Instrument Serif", Georgia, serif', sans = '"Instrument Sans", "Segoe UI", sans-serif', mono = '"IBM Plex Mono", Consolas, monospace';
 
-    c.fillStyle = '#f3f8fb'; c.fillRect(0, 0, CW, CH);
-    for (let x = 0; x <= CW; x += 40) { c.strokeStyle = x % 200 === 0 ? 'rgba(14,51,96,0.09)' : 'rgba(14,51,96,0.04)'; c.lineWidth = 1; c.beginPath(); c.moveTo(x + .5, 0); c.lineTo(x + .5, CH); c.stroke(); }
-    for (let y = 0; y <= CH; y += 40) { c.strokeStyle = y % 200 === 0 ? 'rgba(14,51,96,0.09)' : 'rgba(14,51,96,0.04)'; c.beginPath(); c.moveTo(0, y + .5); c.lineTo(CW, y + .5); c.stroke(); }
+    const bg = c.createLinearGradient(0, 0, 0, CH);
+    bg.addColorStop(0, '#eef6f9'); bg.addColorStop(1, '#d9ebf1');
+    c.fillStyle = bg; c.fillRect(0, 0, CW, CH);
+    if (withShip) {
+      const sw = shipImg.naturalHeight * ((CW - 144) / (CH - 144));
+      c.save(); c.globalAlpha = 0.1; c.globalCompositeOperation = 'multiply';
+      c.drawImage(shipImg, (shipImg.naturalWidth - sw) / 2, 0, sw, shipImg.naturalHeight, 72, 72, CW - 144, CH - 144);
+      c.restore();
+    }
+    for (let x = 0; x <= CW; x += 40) { c.strokeStyle = x % 200 === 0 ? 'rgba(13,27,46,0.08)' : 'rgba(13,27,46,0.035)'; c.lineWidth = 1; c.beginPath(); c.moveTo(x + .5, 0); c.lineTo(x + .5, CH); c.stroke(); }
+    for (let y = 0; y <= CH; y += 40) { c.strokeStyle = y % 200 === 0 ? 'rgba(13,27,46,0.08)' : 'rgba(13,27,46,0.035)'; c.beginPath(); c.moveTo(0, y + .5); c.lineTo(CW, y + .5); c.stroke(); }
 
     c.strokeStyle = NAVY; c.lineWidth = 6; c.strokeRect(50, 50, CW - 100, CH - 100);
     c.lineWidth = 1.5; c.strokeRect(72, 72, CW - 144, CH - 144);
-    // registration marks in the corners
     for (const [x, y] of [[72, 72], [CW - 72, 72], [72, CH - 72], [CW - 72, CH - 72]]) {
       c.beginPath(); c.arc(x, y, 16, 0, TAU); c.moveTo(x - 28, y); c.lineTo(x + 28, y); c.moveTo(x, y - 28); c.lineTo(x, y + 28); c.stroke();
     }
@@ -737,7 +980,7 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     c.textAlign = 'right'; c.fillText('SCALE 1:1  ·  SHEET 1 OF 1', CW - 110, 130);
 
     c.textAlign = 'center';
-    c.fillStyle = BLUE; c.font = `500 28px ${mono}`;
+    c.fillStyle = SEA; c.font = `500 28px ${mono}`;
     c.fillText('C L A S S   2 6 B 4   ·   T E A C H E R S \'   D A Y   2 0 2 6', CW / 2, 250);
 
     c.fillStyle = NAVY; c.font = `400 118px ${serif}`;
@@ -746,19 +989,19 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     c.fillStyle = MUTED; c.font = `400 34px ${sans}`;
     c.fillText('is proudly presented to', CW / 2, 480);
 
-    c.fillStyle = NAVY; c.font = `italic 400 190px ${serif}`;
+    c.fillStyle = SEA; c.font = `italic 400 190px ${serif}`;
     c.fillText('Sir Salman', CW / 2, 660);
-    c.strokeStyle = AMBER; c.lineWidth = 5;
-    c.beginPath(); c.moveTo(CW / 2 - 440, 705); c.lineTo(CW / 2 + 440, 705); c.stroke();
+    c.strokeStyle = NAVY; c.lineWidth = 2;
+    const ux1 = CW / 2 - 440, ux2 = CW / 2 + 440, uy = 705;
+    c.beginPath(); c.moveTo(ux1, uy); c.lineTo(ux2, uy); c.moveTo(ux1, uy - 14); c.lineTo(ux1, uy + 14); c.moveTo(ux2, uy - 14); c.lineTo(ux2, uy + 14); c.stroke();
 
-    c.fillStyle = '#23384f'; c.font = `400 33px ${sans}`;
-    let y = wrapCentered(c,
+    c.fillStyle = '#1d3048'; c.font = `400 33px ${sans}`;
+    const y = wrapCentered(c,
       'For teaching us Desmos, for always being online in the group, for never minding our jokes, for sharing your story with us, and for teaching so well that we aced one of the hardest subjects known to mankind.',
       CW / 2, 790, 1440, 52);
-    c.fillStyle = NAVY; c.font = `500 33px ${sans}`;
+    c.fillStyle = NAVY; c.font = `600 33px ${sans}`;
     wrapCentered(c, 'Good luck on your journey ahead in Germany. We will always remember you.', CW / 2, y + 14, 1440, 52);
 
-    // signature (left) and date (right)
     c.strokeStyle = NAVY; c.lineWidth = 2;
     c.beginPath(); c.moveTo(220, 1200); c.lineTo(700, 1200); c.moveTo(CW - 700, 1200); c.lineTo(CW - 220, 1200); c.stroke();
     c.fillStyle = NAVY; c.font = `italic 400 70px ${serif}`;
@@ -771,35 +1014,36 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
 
     // seal: a four-petal rose, r = cos 4θ
     const sx = CW / 2, sy = 1160, sr = 108;
-    c.fillStyle = AMBER; c.beginPath(); c.arc(sx, sy, sr, 0, TAU); c.fill();
-    c.strokeStyle = NAVY; c.lineWidth = 2.5; c.beginPath(); c.arc(sx, sy, sr - 12, 0, TAU); c.stroke();
+    c.fillStyle = SEA; c.beginPath(); c.arc(sx, sy, sr, 0, TAU); c.fill();
+    c.strokeStyle = '#e8f3f7'; c.lineWidth = 2.5; c.beginPath(); c.arc(sx, sy, sr - 12, 0, TAU); c.stroke();
     c.setLineDash([4, 7]); c.beginPath(); c.arc(sx, sy, sr - 22, 0, TAU); c.stroke(); c.setLineDash([]);
     c.lineWidth = 3; c.beginPath();
     for (let i = 0; i <= 600; i++) {
       const t = (i / 600) * TAU, r = Math.cos(4 * t) * (sr - 34);
-      const px = sx + r * Math.cos(t), py = sy + r * Math.sin(t);
-      i ? c.lineTo(px, py) : c.moveTo(px, py);
+      i ? c.lineTo(sx + r * Math.cos(t), sy + r * Math.sin(t)) : c.moveTo(sx + r * Math.cos(t), sy + r * Math.sin(t));
     }
     c.stroke();
     c.fillStyle = NAVY; c.font = `500 22px ${mono}`;
     c.fillText('∎  Q.E.D.', sx, sy + sr + 42);
   }
 
+  // A fresh canvas each time: if the ship image cannot be exported (e.g. opened from a file),
+  // the certificate is redrawn without it.
   const certImg = $('cert-img');
+  let cert = null;
+  function makeCert(withShip) {
+    const cv = document.createElement('canvas');
+    cv.width = 2000; cv.height = 1414;
+    drawCert(cv, withShip);
+    return cv;
+  }
   function renderCert() {
-    drawCert();
-    certImg.src = cert.toDataURL('image/png');
+    const withShip = shipImg.complete && shipImg.naturalWidth > 0;
+    try { cert = makeCert(withShip); certImg.src = cert.toDataURL('image/png'); }
+    catch (err) { cert = makeCert(false); certImg.src = cert.toDataURL('image/png'); }
   }
   renderCert();
-  if (document.fonts && document.fonts.load) {
-    Promise.all([
-      document.fonts.load('400 118px "Instrument Serif"'),
-      document.fonts.load('italic 400 190px "Instrument Serif"'),
-      document.fonts.load('400 33px "IBM Plex Sans"'),
-      document.fonts.load('500 33px "IBM Plex Sans"'),
-      document.fonts.load('500 22px "IBM Plex Mono"'),
-    ]).then(() => { renderCert(); drawPlot(plotAnim || 1); }).catch(() => {});
-  }
+  shipImg.addEventListener('load', renderCert);
 
   const note$ = $('dl-note');
   const FILENAME = 'Certificate - Sir Salman - Class 26B4.png';
@@ -815,21 +1059,24 @@ footer { border-top: 1px dashed var(--line); padding-block: 40px 96px; color: va
     }, 'image/png');
   });
 
-  /* ====================== Goodbye song ====================== */
-  // Starts by itself once Sir scrolls to the end; the tap on the opening screen lets it play with sound.
-  const video = $('video');
-  let songStarted = false;
-  function startSong() {
-    if (songStarted) return;
-    songStarted = true;
-    stopTune();
-    video.innerHTML = '<iframe src="https://www.youtube.com/embed/Oextk-If8HQ?start=20&autoplay=1&rel=0&playsinline=1" title="Keane - Somewhere Only We Know" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
-  }
-  $('video-play').addEventListener('click', startSong);
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver((entries, obs) => {
-      if (entries.some((e) => e.isIntersecting) && gate.hidden) { startSong(); obs.disconnect(); }
-    }, { threshold: 0.6 }).observe(video);
+  /* ====================== Boot ====================== */
+  resizeFw();
+  drawDraft();
+  drawPlot(1);
+  let resizeTimer = null;
+  addEventListener('resize', () => {
+    resizeFw();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { drawDraft(); drawPlot(plotProgress); }, 120);
+  });
+  if (document.fonts && document.fonts.load) {
+    Promise.all([
+      document.fonts.load('400 118px "Instrument Serif"'),
+      document.fonts.load('italic 400 190px "Instrument Serif"'),
+      document.fonts.load('400 33px "Instrument Sans"'),
+      document.fonts.load('600 33px "Instrument Sans"'),
+      document.fonts.load('500 22px "IBM Plex Mono"'),
+    ]).then(() => { renderCert(); drawPlot(plotProgress); drawDraft(); }).catch(() => {});
   }
 })();
 </script>
